@@ -1,0 +1,25 @@
+body{
+    margin:0px;
+    padding:0px;
+}
+
+.container{
+    padding:20px;
+    width:50%;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top:20px;
+}
+input,select{
+    width:100%;
+}

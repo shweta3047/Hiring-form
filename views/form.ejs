@@ -1,0 +1,36 @@
+<%- include("partials/header") %>
+
+<div class="container">
+    <div>Hiring-Form</div>
+    <form action="/hiring-form" method="post" class="form">
+
+        <label for="name">Name:</label>
+        <input type="text" name="name" placeholder="Enter your name" value="">
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" placeholder="Enter your email" value="">
+
+        <label for="resume">Upload your Resume:</label>
+        <input type="file" name="resume" value="">
+
+        <span>Or</span>
+
+        <label for="link">Provide a link:</label>
+        <input type="url" name="link" placeholder="Enter link of resume" value="">
+
+        <label for="position">Choose position:</label>
+        <select name="position">
+            <option value="Web Developer">Web Developer</option>
+            <option value="Android Developer">Android Developer</option>
+            <option value="Data Analytic">Data Analytic</option>
+            <option value="Programmer">Programmer</option>
+          </select>
+
+          <label for="qualification">Highest Qualification:</label>
+          <input type="text" name="qualification" vaue="" placeholder="i.e. Btech 2nd year">
+        
+          <button>Submit</button>
+    </form>
+</div>
+
+<%- include("partials/footer") %>
