@@ -1,10 +1,10 @@
 const express=require('express');
 const app=express();
-const PORT=3000;
+const PORT=process.env.PORT || 3000;
 const bodyParser=require('body-parser');
 const mongoose=require('mongoose');
 const formRoute=require('./routes/form');
-const {MONGOURI}=require('./keys');
+const {MONGOURI}=require('./config/keys');
 
 mongoose.connect(MONGOURI,{useNewUrlParser:true,useUnifiedTopology: true})
 mongoose.connection.on('connected',()=>{
@@ -14,7 +14,7 @@ mongoose.connection.on('error',(err)=>{
     console.log('error in connecting to database ',err)
 })
 
-app.use(express.static("public"));
+app.use(express.static(__dirname + '/public'));
 app.set("view engine","ejs");
 
 app.use(bodyParser.urlencoded({extended:true}));

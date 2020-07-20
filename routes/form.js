@@ -1,7 +1,22 @@
 const express=require('express');
 const router=express.Router();
 const mongoose=require('mongoose');
+const multer=require('multer');
+const {URI}=require("../config/keys");
 const Candidate=require('../models/applicant');
+
+const storage = multer.diskStorage({
+    destination: (req, file, next)=> {
+     next(null, "./public/upload")
+    },
+    filename: function (req, file, next) {
+      next(null, file.fieldname + '-' + Date.now() )
+    }
+  })
+const upload = multer({ 
+    storage: storage ,
+    preservePath : true
+})
 
 router.get("/hiring-form",(req,res)=>{
     res.render("form",{message : null});
@@ -11,10 +26,10 @@ router.get("/form-submitted",(req,res)=>{
     res.render("form-submitted")
 })
 
-router.post("/hiring-form",async(req,res)=>{
-    const {name,email,resume,link,position,qualification}=req.body;
+router.post("/hiring-form",upload.single('resume'),async(req,res)=>{
+    const {name,email,position,qualification}=req.body;
     const candidate={
-        name:name,email:email,resume:resume,position:position,link:link,qualification:qualification
+        name:name,email:email,resume:`${URI}/upload/${req.file.filename} `,position:position,qualification:qualification
     }
    try{
        const alreadyCandidate=await Candidate.findOne({email:email})
@@ -34,7 +49,7 @@ router.post("/hiring-form",async(req,res)=>{
        }
    }catch(err){
        console.log(err);
-       res.send("Something went wrong in catch! Try again")
+       res.send("Something went wrong! Try again")
    }
 })
 

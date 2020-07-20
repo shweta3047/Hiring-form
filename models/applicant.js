@@ -10,9 +10,6 @@ const candidateSchema= new mongoose.Schema({
     resume:{
         type:String,
     },
-    link:{
-        type:String
-    },
     position:{
         type:String,
     },

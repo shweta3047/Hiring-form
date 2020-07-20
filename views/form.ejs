@@ -8,7 +8,7 @@
 
 <div class="container">
     <div>Hiring-Form</div>
-    <form action="/hiring-form" method="post" class="form" >
+    <form action="/hiring-form" method="post" class="form" enctype="multipart/form-data">
 
         <label for="name">Name:</label>
         <input type="text" name="name" placeholder="Enter your name" value="" required>
@@ -17,12 +17,7 @@
         <input type="email" name="email" placeholder="Enter your email" value="" required>
 
         <label for="resume">Upload your Resume:</label>
-        <input type="file" name="resume" value="" accept="image/*,.pdf">
-
-        <span>Or</span>
-
-        <label for="link">Provide a link:</label>
-        <input type="url" name="link" placeholder="Enter link of resume" value="">
+        <input type="file" name="resume" value="" accept="image/*,.pdf" required>
 
         <label for="position">Choose position:</label>
         <select name="position">
