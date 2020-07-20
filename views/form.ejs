@@ -1,17 +1,23 @@
 <%- include("partials/header") %>
 
+<% if(message){ %>
+    <div class="message">
+        <%-message%>
+    </div>
+    <% }%>
+
 <div class="container">
     <div>Hiring-Form</div>
-    <form action="/hiring-form" method="post" class="form">
+    <form action="/hiring-form" method="post" class="form" >
 
         <label for="name">Name:</label>
-        <input type="text" name="name" placeholder="Enter your name" value="">
+        <input type="text" name="name" placeholder="Enter your name" value="" required>
 
         <label for="email">Email:</label>
-        <input type="email" name="email" placeholder="Enter your email" value="">
+        <input type="email" name="email" placeholder="Enter your email" value="" required>
 
         <label for="resume">Upload your Resume:</label>
-        <input type="file" name="resume" value="">
+        <input type="file" name="resume" value="" accept="image/*,.pdf">
 
         <span>Or</span>
 
@@ -27,7 +33,7 @@
           </select>
 
           <label for="qualification">Highest Qualification:</label>
-          <input type="text" name="qualification" vaue="" placeholder="i.e. Btech 2nd year">
+          <input type="text" name="qualification" vaue="" placeholder="i.e. Btech 2nd year" required>
         
           <button>Submit</button>
     </form>

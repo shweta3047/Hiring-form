@@ -3,12 +3,9 @@ const mongoose=require('mongoose');
 const candidateSchema= new mongoose.Schema({
     name:{
         type:String,
-        required:true
     },
     email:{
         type:String,
-        required:true,
-        unique:true
     },
     resume:{
         type:String,
@@ -18,11 +15,9 @@ const candidateSchema= new mongoose.Schema({
     },
     position:{
         type:String,
-        required:true
     },
     qualification:{
         type:String,
-        required:true
     }
 })
 
